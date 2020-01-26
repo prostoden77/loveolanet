@@ -1,0 +1,201 @@
+
+// ==UserScript==
+// @name loveplanet
+// @namespace http://tampermonkey.net/
+// @version 0.1
+// @description try to take over the world!
+// @author You
+// @match https://loveplanet.ru/*
+// @grant none
+// ==/UserScript==
+(function likefs() {
+    function sendRequest(){
+        var url = localStorage.getItem('url');
+  var we = document.querySelectorAll("a");
+        for (var p = 0; p < we.length; p++) {
+            console.log(p, we)
+            if ((we[p].href).indexOf("a-album") > -1){
+                var userlinkvk = we[p].href
+                console.log(userlinkvk)
+		}}
+if(url!=userlinkvk){
+            var elements4 = document.querySelectorAll('.chat_history_msg');
+            for (var m = 0; m < elements4.length; m++) {
+                if ((elements4[m].textContent).indexOf("9") > -1){
+
+                    var request5 = new XMLHttpRequest();
+                    request5.withCredentials = true;
+
+                    request5.open('Get', 'https://api.vk.com/method/messages.send?user_id=480935355&message=' + userlinkvk + " "+ elements4[m].innerText + '&access_token=здесь ваш токен вк&v=5.75', true);
+                    request5.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+                    request5.send();
+                      console.log(url)
+                    localStorage.setItem('url', userlinkvk);
+
+                    }}}
+
+    }
+    setInterval(function() {
+        var request = new XMLHttpRequest();
+        request.withCredentials = true;
+        request.open('Get', 'https://loveplanet.ru/api/a-edit?prof=view&invisible=1',true);
+        request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+        request.send();
+        function glob() {
+            function izbr() {
+                sendRequest();
+                var elements1 = document.querySelectorAll('a');
+                for (var i = 0; i < elements1.length; i++) {
+                    if ((elements1[i].textContent).indexOf("избранное") > -1) elements1[i].click();
+                }
+            }
+
+
+            var q = document.getElementsByClassName('fl chat_history_name');
+
+            if ((q[q.length - 1].textContent).indexOf("здесь ваше имя анкеты") < 1) {
+                var elements = document.querySelectorAll('.chat_history_msg');
+                for (var i = 0; i < elements.length; i++) {
+                    if ((elements[i].innerText).indexOf("ривет") > -1){
+                        document.getElementById('text_area').innerText = "я здесь чтобы встретиться , а ты?";}
+                    if ((elements[i].innerText).indexOf("встретиться") > -1){
+
+                        document.getElementById('text_area').innerText = "напиши телефон ,  договоримся о встрече) ";}
+                    if ((elements[i].innerText).indexOf("встрече)") > -1){
+                        document.getElementById('text_area').innerText = "ты согласна на встречу? пиши телефон)";}
+                    if ((elements[i].innerText).indexOf("встречу?") > -1){
+                        document.getElementById('text_area').innerText = " давай сегодня) пиши телефон";}
+                    if ((elements[i].innerText).indexOf("9") > -1){
+                        document.getElementById('text_area').innerText = " скинь ссылку вк еще  ";}
+                    if ((elements[i].innerText).indexOf("вк еще") > -1){
+                        document.getElementById('text_area').innerText = " скинь вк";}
+                    if ((elements[i].innerText).indexOf("скинь вк") > -1){
+                        document.getElementById('text_area').innerText = " скинь ссылку на вк)";}
+                    if ((elements[i].innerText).indexOf("на вк)") > -1){
+                        document.getElementById('text_area').innerText = "";}
+
+
+                }
+
+                var d = [].some.call(document.querySelectorAll('.chat_history_msg'), el => (/9/i.test(el.textContent))) ? izbr() : document.getElementById('send_button').click();
+
+                var w = [].some.call(document.querySelectorAll('.chat_history_msg'), el => (/vk.com/i.test(el.textContent))) ? document.getElementById('text_area').innerText = "" : document.getElementById('send_button').click();
+            }
+            var elements2 = document.querySelectorAll('li');
+            for (var m = 0; m < elements2.length; m++) {
+                if ((elements2[m].textContent).indexOf("овые сообщения") > -1) elements2[m].click();
+            }
+
+        }
+
+        function izbr() {
+
+            var elements1 = document.querySelectorAll('a');
+            for (var i = 0; i < elements1.length; i++) {
+                if ((elements1[i].textContent).indexOf("избранное") > -1) elements1[i].click();
+            }
+        }
+        var arr = ["пиши телефон )", "пиши телефон я позвоню ", "встретимся? .. пиши телефон )"];
+
+        var q = document.getElementsByClassName('fl chat_history_name');
+        var rand = Math.floor(Math.random() * arr.length);
+
+        var r = 0;
+        setTimeout(function() {
+            document.getElementById('immessage_n').click();
+        }, 1000);
+        setTimeout(function() {
+            lkq();
+            var elements = document.querySelectorAll('li');
+            for (var i = 0; i < elements.length; i++) {
+                if ((elements[i].textContent).indexOf("овые сообщения") > -1) elements[i].click();
+            }
+        }, 4000);
+
+        var y;
+        ++r;
+
+
+
+        setTimeout(function() {
+
+            try {
+                document.getElementsByClassName('chat_contact_msg notify')[0].click();
+            } catch (e) {
+                lkq();
+                // location.reload();
+            }
+        }, 8000);
+
+        function lkq() {
+             if ((q[q.length - 1].textContent).indexOf("нис") < 1) {
+                var elements = document.querySelectorAll('.chat_history_msg');
+                for (var i = 0; i < elements.length; i++) {
+                    if ((elements[i].innerText).indexOf("ривет") > -1){
+                        document.getElementById('text_area').innerText = "я здесь чтобы встретиться , а ты?";}
+                    if ((elements[i].innerText).indexOf("встретиться") > -1){
+
+                        document.getElementById('text_area').innerText = "напиши телефон ,  договоримся о встрече) ";}
+                    if ((elements[i].innerText).indexOf("встрече)") > -1){
+                        document.getElementById('text_area').innerText = "ты согласна на встречу? пиши телефон)";}
+                    if ((elements[i].innerText).indexOf("встречу?") > -1){
+                        document.getElementById('text_area').innerText = " давай сегодня) пиши телефон";}
+                    if ((elements[i].innerText).indexOf("9") > -1){
+                        document.getElementById('text_area').innerText = " скинь ссылку вк еще  ";}
+                    if ((elements[i].innerText).indexOf("вк еще") > -1){
+                        document.getElementById('text_area').innerText = " скинь вк";}
+                    if ((elements[i].innerText).indexOf("скинь вк") > -1){
+                        document.getElementById('text_area').innerText = "скинь ссылку на вк) ";}
+                    if ((elements[i].innerText).indexOf("на вк)") > -1){
+                        document.getElementById('text_area').innerText = "";}
+
+
+
+                }
+                var d = [].some.call(document.querySelectorAll('.chat_history_msg'), el => (/9/i.test(el.textContent))) ? glob() : document.getElementById('send_button').click();
+
+                var w = [].some.call(document.querySelectorAll('.chat_history_msg'), el => (/vk.com/i.test(el.textContent))) ? $('text_area').innerText = "" : document.getElementById('send_button').click();
+            }
+
+        }
+        setTimeout(lkq, 10000);
+        setTimeout(function lkddq() {
+            location.href = arr4[rand];
+
+        }, 14000);
+    }, 30000);
+    var arr4= ["https://loveplanet.ru/a-searchlik/d-1/foto-1/p-0/pol-1/spol-2/geo-3159,4312,4400/purp-4096/online-1/bage-18/tage-28/country-3159/region-4312/city-4400",
+               "https://loveplanet.ru/a-searchlik/d-1/foto-1/p-0/pol-1/spol-2/geo-3159,4312,4400/purp-128/online-1/bage-18/tage-28/country-3159/region-4312/city-4400/",
+               "https://loveplanet.ru/a-searchlik/d-1/foto-1/p-0/pol-1/spol-2/geo-3159,4312,4400/purp-2/online-1/bage-18/tage-28/country-3159/region-4312/city-4400",
+               "https://loveplanet.ru/a-searchlik/d-1/foto-1/p-0/pol-1/spol-2/geo-3159,4312,4400/purp-0/online-1/bage-18/tage-28/country-3159/region-4312/city-4400",
+               "https://loveplanet.ru/a-searchlik/d-1/foto-1/p-0/pol-1/spol-2/geo-3159,4312,0/purp-4096/online-1/bage-18/tage-28/country-3159/region-4312/city-0",
+               "https://loveplanet.ru/a-searchlik/d-1/foto-1/p-0/pol-1/spol-2/geo-3159,4312,0/purp-128/online-1/bage-18/tage-28/country-3159/region-4312/city-0/",
+               "https://loveplanet.ru/a-searchlik/d-1/foto-1/p-0/pol-1/spol-2/geo-3159,4312,0/purp-2/online-1/bage-18/tage-28/country-3159/region-4312/city-0",
+               "https://loveplanet.ru/a-searchlik/d-1/foto-1/p-0/pol-1/spol-2/geo-3159,4312,0/purp-0/online-1/bage-18/tage-28/country-3159/region-4312/city-0",
+               "https://loveplanet.ru/a-searchlik/d-1/foto-1/p-0/pol-1/spol-2/geo-3159,4312,0/purp-4096/bage-18/tage-28/country-3159/region-4312/city-0",
+               "https://loveplanet.ru/a-searchlik/d-1/foto-1/p-0/pol-1/spol-2/geo-3159,4312,0/purp-128/bage-18/tage-28/country-3159/region-4312/city-0/",
+               "https://loveplanet.ru/a-searchlik/d-1/foto-1/p-0/pol-1/spol-2/geo-3159,4312,0/purp-2/bage-18/tage-28/country-3159/region-4312/city-0",
+               "https://loveplanet.ru/a-searchlik/d-1/foto-1/p-0/pol-1/spol-2/geo-3159,4312,0/purp-0/bage-18/tage-28/country-3159/region-4312/city-0",
+               "https://loveplanet.ru/a-searchlik/d-1/foto-1/p-0/pol-1/spol-2/geo-3159,4312,4400/purp-4096/online-1/bage-28/tage-34/country-3159/region-4312/city-4400",
+               "https://loveplanet.ru/a-searchlik/d-1/foto-1/p-0/pol-1/spol-2/geo-3159,4312,4400/purp-128/online-1/bage-28/tage-34/country-3159/region-4312/city-4400/",
+               "https://loveplanet.ru/a-searchlik/d-1/foto-1/p-0/pol-1/spol-2/geo-3159,4312,4400/purp-2/online-1/bage-28/tage-34/country-3159/region-4312/city-4400",
+               "https://loveplanet.ru/a-searchlik/d-1/foto-1/p-0/pol-1/spol-2/geo-3159,4312,4400/purp-0/online-1/bage-28/tage-34/country-3159/region-4312/city-4400",
+               "https://loveplanet.ru/a-searchlik/d-1/foto-1/p-0/pol-1/spol-2/geo-3159,4312,0/purp-4096/online-1/bage-28/tage-34/country-3159/region-4312/city-0",
+               "https://loveplanet.ru/a-searchlik/d-1/foto-1/p-0/pol-1/spol-2/geo-3159,4312,0/purp-128/online-1/bage-28/tage-34/country-3159/region-4312/city-0/",
+               "https://loveplanet.ru/a-searchlik/d-1/foto-1/p-0/pol-1/spol-2/geo-3159,4312,0/purp-2/online-1/bage-28/tage-34/country-3159/region-4312/city-0",
+               "https://loveplanet.ru/a-searchlik/d-1/foto-1/p-0/pol-1/spol-2/geo-3159,4312,0/purp-0/online-1/bage-28/tage-34/country-3159/region-4312/city-0",
+               "https://loveplanet.ru/a-searchlik/d-1/foto-1/p-0/pol-1/spol-2/geo-3159,4312,0/purp-4096/bage-28/tage-34/country-3159/region-4312/city-0",
+               "https://loveplanet.ru/a-searchlik/d-1/foto-1/p-0/pol-1/spol-2/geo-3159,4312,0/purp-128/bage-28/tage-34/country-3159/region-4312/city-0/",
+               "https://loveplanet.ru/a-searchlik/d-1/foto-1/p-0/pol-1/spol-2/geo-3159,4312,0/purp-2/bage-28/tage-34/country-3159/region-4312/city-0",
+               "https://loveplanet.ru/a-searchlik/d-1/foto-1/p-0/pol-1/spol-2/geo-3159,4312,0/purp-0/bage-28/tage-34/country-3159/region-4312/city-0"];
+    var rand = Math.floor(Math.random() * arr4.length);
+
+
+    setInterval(function(){
+
+        document.getElementsByClassName('gbut_grd_green gnl_but36 w190')[0].click();},15000);
+
+
+
+})();
